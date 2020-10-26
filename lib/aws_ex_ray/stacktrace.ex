@@ -25,6 +25,14 @@
       }
     end
 
+    defp to_map({module, fun, args, []}) do
+      %{
+        path: "",
+        line: 0,
+        label: "#{module}.#{fun_name(fun)}/#{args}"
+      }
+    end
+
     defp fun_name(":" <> fun), do: fun
     defp fun_name(fun), do: fun
 
